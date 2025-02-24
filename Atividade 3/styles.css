@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+*{
+    font-family: "Rubik", serif;
+}
+body{
+    background-color: whitesmoke;
+    padding: 15px;
+}
+h1{
+    text-align: center;
+    align-items: center;
+    color: rgb(44, 44, 138);
+}
+section{
+    background-color: rgb(217, 218, 218);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+ul li{
+    margin: 10px;
+}
+em{
+    color: rgb(38, 38, 132);
+}
