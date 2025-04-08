@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 8</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Pesquisa de Opinião</h1>
+
+    <label>Idade: <input type="number" id="idade" /></label>
+    <label>Sexo:
+        <select id="sexo">
+            <option value="feminino">Feminino</option>
+            <option value="masculino">Masculino</option>
+            <option value="outro">Outro</option>
+        </select>
+    </label>
+    <label>Opinião:
+        <select id="opiniao">
+            <option value="4">Ótimo</option>
+            <option value="3">Bom</option>
+            <option value="2">Regular</option>
+            <option value="1">Péssimo</option>
+        </select>
+    </label>
+
+    <button onclick="adicionarResposta()">Adicionar Resposta</button>
+    <button onclick="mostrarResultados()">Mostrar Resultados</button>
+    <button onclick="limpar()">Limpar</button>
+
+    <div class="result" id="resultados"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
