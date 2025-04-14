@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 10</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap');
+    *{
+        user-select: none;
+        font-family: "Winky Rough", sans-serif;
+    }
+    body{
+        margin: 0 auto;
+        text-align: center;
+        padding: 20px;
+    }
+    #btnCalcular{
+        margin-top: 20px;
+        padding: 10px;
+        background-color: blue;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }#btnCalcular:hover{
+        opacity: 75%;
+    }
+    input{
+        padding: 5px;
+        outline: none;
+    }
+</style>
+<body>
+    <h2>Insira sua altura:</h2>
+    <input type="number" id="inputAltura"><br>
+    <h2>Insira seu peso atual:</h2>
+    <input type="number" id="inputPeso"><br>
+    <button id="btnCalcular" onclick="resultado()">Calcular</button><br><br>
+    <h2 id="resultado"></h2>
+    <h2 id="classificacao"></h2>
+    <h2 id="obesidade"></h2>
+    <script src="script.js"></script>
+</body>
+</html>
