@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 11</title>
+</head>
+
+<body>
+    <h1>Atividade 11 - Criar o objeto Funcionario de 3 formas diferentes</h1>
+    <script>
+        //1- Criação comum
+        const objFuncionario1 =
+        {
+            matricula: '3213123',
+            nome: 'Jose',
+            funcao: 'Caldeireiro'
+        };
+        console.log("1a Forma:")
+        console.log(objFuncionario1.matricula);
+        console.log(objFuncionario1.nome);
+        console.log(objFuncionario1.funcao);
+        
+        //2- com Create
+        const objFuncionario2 = Object.create(
+            {
+                matricula: { value: '123144343' },
+                nome: { value: 'Paulo' },
+                funcao: { value: 'Mecânico' }
+            });
+        console.log("\n2a Forma: ")
+        console.log(objFuncionario2.matricula);
+        console.log(objFuncionario2.nome);
+        console.log(objFuncionario2.funcao);
+
+        //3- criando o objeto a partir da classe
+        class Funcionario {
+            constructor(){
+                this.matricula;
+                this.nome;
+                this.funcao;
+            }
+            setMatricula(value){
+                this.matricula = value;
+            }
+            setNome(value){
+                this.nome = value;
+            }
+            setFuncao(value){
+                this.funcao = value;
+            }
+            getNome(){
+                return this.nome;
+            }
+            getMatricula(){
+                return this.matricula;
+            }
+            getFuncao(){
+                return this.funcao;
+            }
+        }
+        var objFuncionario3 = new Funcionario();
+        objFuncionario3.setNome('Adriano');
+        objFuncionario3.setMatricula('2323232');
+        objFuncionario3.setFuncao('Pintor');
+        console.log("\n3a forma: ")
+        console.log(objFuncionario3.getMatricula());
+        console.log(objFuncionario3.getNome());
+        console.log(objFuncionario3.getFuncao());
+    </script>
+</body>
+
+</html>
