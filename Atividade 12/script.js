@@ -14,7 +14,7 @@ var base = prompt("Digite o valor da base do retângulo:");
 var altura = prompt("Digite o valor da altura do retângulo:");
 var objRetangulo = new Retangulo(base, altura);
 var resultado = objRetangulo.calcArea(Number(base), Number(altura))
-console.log("Área do retângulo: " + resultado);
+alert("Área do retângulo: " + resultado);
 
 // 2.
 class Conta {
@@ -59,7 +59,7 @@ var saldoEsp = prompt("Digite o saldo especial:");
 var objCorrente = new Corrente(nome, banco, numConta, Number(saldo), Number(saldoEsp));
 
 console.log("\n2.");
-console.log("\nNome correntista: " + objCorrente.getNomeCor() +
+alert("\nNome correntista: " + objCorrente.getNomeCor() +
     "\nBanco: " + objCorrente.getBanco() +
     "\nNum. conta: " + objCorrente.getNumConta() +
     "\nSaldo: " + objCorrente.getSaldo() +
@@ -88,7 +88,7 @@ var dtVencimento = prompt("Digite a data de vencimento:");
 
 var objPoupanca = new Poupanca(nome, banco, numConta, Number(saldo), juros, dtVencimento);
 
-console.log("\nNome poupança: " + objPoupanca.getNomeCor() +
+alert("\nNome poupança: " + objPoupanca.getNomeCor() +
     "\nBanco: " + objPoupanca.getBanco() +
     "\nNum. conta: " + objPoupanca.getNumConta() +
     "\nSaldo: " + objPoupanca.getSaldo() +
