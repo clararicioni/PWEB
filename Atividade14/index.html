@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 14</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+    
+    * {
+        font-family: "Sansation", sans-serif;
+    }
+
+    body {
+        text-align: center;
+        padding: 20px;
+    }
+
+    #campoTexto {
+        width: 300px;
+        height: 30px;
+        font-size: 16px;
+        outline: none;
+        padding: 5px;
+    }
+
+    label {
+        margin-left: 10px;
+        font-size: 18px;
+    }
+
+    input[type="radio"] {
+        transform: scale(1.5);
+        margin-right: 5px;
+        margin-top: 20px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <h2>Transformar Texto</h2>
+
+    <input type="text" id="campoTexto" placeholder="Digite algo aqui">
+    <br><br>
+
+    <input type="radio" name="transformacao" id="maiusculas">
+    <label for="maiusculas">Transformar em MAIÚSCULAS</label><br>
+
+    <input type="radio" name="transformacao" id="minusculas">
+    <label for="minusculas">Transformar em minúsculas</label>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
