@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 15</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+    * {
+        font-family: "Inter", sans-serif;
+        margin: 0 auto;
+    }
+
+    .container {
+        background-color: rgb(25, 25, 204);
+        padding: 20px;
+        max-width: 30%;
+        border-radius: 20px;
+        margin-top: 20px;
+    }
+
+    .input,
+    .button {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    button {
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    textarea {
+        resize: none;
+        outline: none;
+        padding: 20px
+    }
+
+    input {
+        outline: none;
+        padding: 5px;
+    }
+
+    h1,
+    h4,
+    label {
+        color: white;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Formulário Principal</h1>
+        <form onsubmit="return validar(event)" name="formulario1">
+            <label for="inputName">Nome:</label>
+            <input type="text" id="inputName" placeholder="Nome">
+
+            <label for="inputEmail">E-mail:</label>
+            <input type="text" id="inputEmail" placeholder="E-mail">
+
+            <label for="inputComentario">Comentário:</label>
+            <textarea id="inputComentario" placeholder="Comentário"></textarea>
+
+            <label>Pesquisa:</label>
+            <h4 id="txtPrimeiraVez">Primeira vez nessa página?</h4>
+            <div class="input">
+                <div>
+                    <input type="radio" id="inputSim" name="pesquisa" value="sim" />
+                    <label for="inputSim">Sim</label>
+                </div>
+                <div>
+                    <input type="radio" id="inputNao" name="pesquisa" value="nao" />
+                    <label for="inputNao">Não</label>
+                </div>
+            </div>
+            <label id="resposta"></label>
+            <div class="button">
+                <button type="submit">Enviar</button>
+                <button type="button" onclick="limpar()">Limpar</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
