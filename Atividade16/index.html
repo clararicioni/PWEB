@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Escolha de Curso - Fatec Sorocaba</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+    * {
+        font-family: "Inter", sans-serif;
+        margin: 0 auto;
+        padding: 10px;
+    }
+</style>
+
+<body>
+    <h1>Selecione um curso da Fatec Sorocaba</h1>
+
+    <select id="cursoSelect" onchange="abrirCurso()">
+        <option value="">-- Selecione --</option>
+        <option value="ads">Análise e Desenvolvimento de Sistemas</option>
+        <option value="eletronica">Eletrônica Automotiva</option>
+        <option value="fabmec">Fabricação Mecânica</option>
+        <option value="gq">Gestão da Qualidade</option>
+        <option value="logistica">Logística</option>
+        <option value="manufatura">Manufatura Avançada</option>
+        <option value="aeronaves">Manutenção de Aeronaves</option>
+        <option value="polimeros">Polímeros</option>
+        <option value="procmetal">Processos Metalúrgicos</option>
+        <option value="projmecan">Projetos Mecânicos</option>
+        <option value="sbio">Sistemas Biomédicos</option>
+    </select>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
