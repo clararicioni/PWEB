@@ -5,7 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professores</title>
 </head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+    *{
+        margin: 0 auto;
+        text-align: center;
+        user-select: none;
+        font-family: "Ubuntu", sans-serif;
+        padding: 20px;
+    }
+    table#tabela1{
+        border-collapse: collapse;
+    }
+    table#tabela1 th,
+    table#tabela1 td {
+        border: 1px solid black;
+        padding: 5px;
+    }
+    table#tabela1 tr td {
+        background: #ffc;
+    }
+    table#tabela1 tr.cabeca td{
+        background: pink;
+    }
+</style>
 <body>
     <h1>Professores</h1>
+    <table id="tabela1">
+        <tr class="cabeca">
+            <td>ID</td>
+            <td>Nome</td>
+            <td>E-mail</td>
+        </tr>
+        <% console.log('Quantidade de registros: '+profs.length); %>
+        <% for(let i = 0; i < profs.length; i++){%>
+        <tr>
+            <td><%=profs[i].ID_PROFESSOR%></td>
+            <td><%=profs[i].NOME_PROFESSOR%></td>
+            <td><%=profs[i].EMAIL_PROFESSOR%></td>
+        </tr>
+        <%}%>
+    </table>
 </body>
 </html>
