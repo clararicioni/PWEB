@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "mssql": "^11.0.1",
+    "prompt-sync": "^4.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "scripts": {
+    "start": "npx nodemon app.js"
+  }
+}
