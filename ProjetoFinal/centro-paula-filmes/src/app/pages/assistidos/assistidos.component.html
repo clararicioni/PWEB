@@ -12,13 +12,22 @@
         </div>
 
         <div
-          class="card-overlay position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center"
+          class="card-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center gap-3"
           style="background: rgba(0,0,0,0.7); opacity: 0; transition: opacity 0.3s;" (mouseenter)="showOverlay($event)"
           (mouseleave)="hideOverlay($event)">
+
+          <div class="d-flex gap-2" style="background: transparent;">
+            <ng-container *ngFor="let estrela of [1,2,3,4,5]">
+              <span style="background: transparent; color: lightgray; cursor: pointer; font-size: 2rem;" (click)="avaliar(filme, estrela)"
+                title="Avaliar {{ estrela }} estrela(s)">★</span>
+            </ng-container>
+          </div>
+
           <button class="btn btn-danger" (click)="removerAssistido(filme)">
             Remover
           </button>
         </div>
+
       </div>
     </div>
   </div>

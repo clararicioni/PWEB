@@ -12,7 +12,7 @@ import { FilmesListaService } from '../../services/filmes-lista.service';
 export class AssistidosComponent implements OnInit {
   assistidos: any[] = [];
 
-  constructor(private listaService: FilmesListaService) {}
+  constructor(private listaService: FilmesListaService) { }
 
   ngOnInit() {
     this.assistidos = this.listaService.getAssistidos();
@@ -20,7 +20,7 @@ export class AssistidosComponent implements OnInit {
 
   removerAssistido(filme: any) {
     this.listaService.removerAssistido(filme);
-    this.assistidos = this.listaService.getAssistidos(); 
+    this.assistidos = this.listaService.getAssistidos();
   }
 
   showOverlay(event: Event): void {
@@ -31,5 +31,10 @@ export class AssistidosComponent implements OnInit {
   hideOverlay(event: Event): void {
     const target = event.currentTarget as HTMLElement;
     if (target) target.style.opacity = '0';
+  }
+
+  avaliar(filme: any, estrelas: number) {
+    this.listaService.avaliarFilme(filme, estrelas);
+    this.assistidos = this.listaService.getAssistidos(); 
   }
 }

@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class FilmesListaService {
   private assistidosKey = 'assistidos';
+  private avaliadosKey = 'avaliados';
+  private avaliados: any[] = [];
   private queroAssistirKey = 'queroAssistir';
 
   getAssistidos(): any[] {
@@ -50,4 +52,51 @@ export class FilmesListaService {
   isQueroAssistir(id: number): boolean {
     return this.getQueroAssistir().some(f => f.id === id);
   }
+
+  avaliarFilme(filme: any, nota: number): void {
+    const assistidos = this.getAssistidos().filter(f => f.id !== filme.id);
+    localStorage.setItem(this.assistidosKey, JSON.stringify(assistidos));
+
+    let avaliados = this.getAvaliados();
+    const filmeAvaliado = { ...filme, avaliacao: nota };
+    avaliados = avaliados.filter(f => f.id !== filme.id);
+    avaliados.push(filmeAvaliado);
+    localStorage.setItem(this.avaliadosKey, JSON.stringify(avaliados));
+  }
+
+  salvarAvaliados() {
+    localStorage.setItem(this.avaliadosKey, JSON.stringify(this.avaliados));
+  }
+
+  getAvaliados(): any[] {
+    if (typeof window === 'undefined') return [];
+
+    const avaliadosJSON = localStorage.getItem('avaliados');
+    return avaliadosJSON ? JSON.parse(avaliadosJSON) : [];
+  }
+
+  adicionarAvaliados(filme: any) {
+    if (!this.isAvaliados(filme.id)) {
+      this.avaliados.push(filme);
+      this.salvarAvaliados();
+    }
+  }
+
+  removerAvaliados(filme: any): void {
+    const avaliados = this.getAvaliados().filter(f => f.id !== filme.id);
+    localStorage.setItem(this.avaliadosKey, JSON.stringify(avaliados));
+  }
+
+  isAvaliados(id: number): boolean {
+    return this.avaliados.some(f => f.id === id);
+  }
+
+  atualizarAvaliacao(filme: any, novaNota: number): void {
+  let avaliados = this.getAvaliados();
+  const index = avaliados.findIndex(f => f.id === filme.id);
+  if (index !== -1) {
+    avaliados[index].avaliacao = novaNota;
+    localStorage.setItem(this.avaliadosKey, JSON.stringify(avaliados));
+  }
+}
 }
