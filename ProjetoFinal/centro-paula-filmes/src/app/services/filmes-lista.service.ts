@@ -23,12 +23,24 @@ export class FilmesListaService {
     }
   }
 
+  removerAssistido(filme: any): void {
+    const assistidos = this.getAssistidos();
+    const atualizado = assistidos.filter(f => f.id !== filme.id);
+    localStorage.setItem(this.assistidosKey, JSON.stringify(atualizado));
+  }
+
   adicionarQueroAssistir(filme: any) {
     const quero = this.getQueroAssistir();
     if (!quero.find(f => f.id === filme.id)) {
       quero.push(filme);
       localStorage.setItem(this.queroAssistirKey, JSON.stringify(quero));
     }
+  }
+
+  removerQueroAssistir(filme: any): void {
+    const quero = this.getQueroAssistir();
+    const atualizado = quero.filter(f => f.id !== filme.id);
+    localStorage.setItem(this.queroAssistirKey, JSON.stringify(atualizado));
   }
 
   isAssistido(id: number): boolean {

@@ -17,4 +17,19 @@ export class AssistidosComponent implements OnInit {
   ngOnInit() {
     this.assistidos = this.listaService.getAssistidos();
   }
+
+  removerAssistido(filme: any) {
+    this.listaService.removerAssistido(filme);
+    this.assistidos = this.listaService.getAssistidos(); 
+  }
+
+  showOverlay(event: Event): void {
+    const target = event.currentTarget as HTMLElement;
+    if (target) target.style.opacity = '1';
+  }
+
+  hideOverlay(event: Event): void {
+    const target = event.currentTarget as HTMLElement;
+    if (target) target.style.opacity = '0';
+  }
 }

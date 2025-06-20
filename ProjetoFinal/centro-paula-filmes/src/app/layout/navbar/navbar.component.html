@@ -7,9 +7,8 @@
   </div>
 
   <div class="position-relative w-100" style="max-width: 400px;">
-    <input type="text" class="form-control" placeholder="Pesquisar filme" (input)="onInput($event)" [value]="termo" />
-
-    <!-- Sugestões -->
+    <input type="text" class="form-control bg-white" placeholder="Pesquisar filme" (input)="onInput($event)"
+      [value]="termo" />
     <ul class="list-group position-absolute w-100 z-3" *ngIf="sugestoes.length > 0">
       <li class="list-group-item list-group-item-action" *ngFor="let filme of sugestoes"
         (click)="selecionarFilme(filme)">

@@ -29,7 +29,6 @@ export class FilmesComponent implements OnInit {
 
   buscarFilmes(page: number = 1) {
     if (this.searchTerm.trim()) {
-      // busca pelo termo digitado
       this.tmdbService.searchMovies(this.searchTerm, page).subscribe({
         next: (res: any) => {
           this.filmes = res.results;
@@ -39,7 +38,6 @@ export class FilmesComponent implements OnInit {
         error: (err) => console.error(err)
       });
     } else {
-      // lista os populares quando não há busca
       this.tmdbService.getPopularMovies(page).subscribe({
         next: (res: any) => {
           this.filmes = res.results;

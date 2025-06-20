@@ -1,11 +1,23 @@
 <div class="container" style="margin-top: 150px;">
-    <h1 class="mb-4">Filmes Assistidos</h1>
+  <h1 class="mb-4">Filmes Assistidos</h1>
   <div class="row">
     <div class="col-md-3" *ngFor="let filme of assistidos">
-      <div class="card mb-4">
-        <img [src]="'https://image.tmdb.org/t/p/w300' + filme.poster_path" class="card-img-top" alt="{{ filme.title }}">
+      <div class="card mb-4 position-relative overflow-hidden">
+
+        <img [src]="'https://image.tmdb.org/t/p/w300' + filme.poster_path" class="card-img-top"
+          alt="{{ filme.title }}" />
+
         <div class="card-body">
           <h5 class="card-title">{{ filme.title }}</h5>
+        </div>
+
+        <div
+          class="card-overlay position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center"
+          style="background: rgba(0,0,0,0.7); opacity: 0; transition: opacity 0.3s;" (mouseenter)="showOverlay($event)"
+          (mouseleave)="hideOverlay($event)">
+          <button class="btn btn-danger" (click)="removerAssistido(filme)">
+            Remover
+          </button>
         </div>
       </div>
     </div>
