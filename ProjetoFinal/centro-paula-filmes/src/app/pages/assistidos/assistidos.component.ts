@@ -17,6 +17,11 @@ export class AssistidosComponent implements OnInit {
   ngOnInit() {
     this.assistidos = this.listaService.getAssistidos();
   }
+  
+  avaliar(filme: any, estrelas: number) {
+    this.listaService.avaliarFilme(filme, estrelas);
+    this.assistidos = this.listaService.getAssistidos(); 
+  }
 
   removerAssistido(filme: any) {
     this.listaService.removerAssistido(filme);
@@ -31,10 +36,5 @@ export class AssistidosComponent implements OnInit {
   hideOverlay(event: Event): void {
     const target = event.currentTarget as HTMLElement;
     if (target) target.style.opacity = '0';
-  }
-
-  avaliar(filme: any, estrelas: number) {
-    this.listaService.avaliarFilme(filme, estrelas);
-    this.assistidos = this.listaService.getAssistidos(); 
   }
 }
