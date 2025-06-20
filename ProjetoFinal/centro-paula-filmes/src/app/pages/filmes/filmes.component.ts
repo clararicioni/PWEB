@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TmdbService } from '../../services/tmdb.service';
 import { FilmesListaService } from '../../services/filmes-lista.service';
+import { PesquisaService } from '../../services/pesquisa.service';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-filmes',
@@ -11,26 +13,47 @@ import { FilmesListaService } from '../../services/filmes-lista.service';
 })
 export class FilmesComponent implements OnInit {
   filmes: any[] = [];
+  searchTerm: string = '';
   currentPage = 1;
   totalPages = 0;
 
-  constructor(private tmdbService: TmdbService, private listaService: FilmesListaService) { }
+  constructor(
+    private tmdbService: TmdbService,
+    private listaService: FilmesListaService,
+    private pesquisaService: PesquisaService
+  ) { }
 
   ngOnInit(): void {
     this.buscarFilmes(this.currentPage);
   }
 
-  buscarFilmes(page: number): void {
-    this.tmdbService.getPopularMovies(page).subscribe({
-      next: (res: any) => {
-        this.filmes = res.results;
-        this.totalPages = res.total_pages;
-        this.currentPage = page;
-      },
-      error: err => {
-        console.error('Erro ao buscar filmes:', err);
-      }
-    });
+  buscarFilmes(page: number = 1) {
+    if (this.searchTerm.trim()) {
+      // busca pelo termo digitado
+      this.tmdbService.searchMovies(this.searchTerm, page).subscribe({
+        next: (res: any) => {
+          this.filmes = res.results;
+          this.totalPages = res.total_pages;
+          this.currentPage = page;
+        },
+        error: (err) => console.error(err)
+      });
+    } else {
+      // lista os populares quando não há busca
+      this.tmdbService.getPopularMovies(page).subscribe({
+        next: (res: any) => {
+          this.filmes = res.results;
+          this.totalPages = res.total_pages;
+          this.currentPage = page;
+        },
+        error: (err) => console.error(err)
+      });
+    }
+  }
+
+  onSearchChange(value: string) {
+    this.searchTerm = value;
+    this.buscarFilmes(1);
   }
 
   isAssistido(filme: any): boolean {
